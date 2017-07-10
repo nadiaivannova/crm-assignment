@@ -2,8 +2,7 @@ require_relative "contact"
 
 class CRM
 
-  def initialize(name)
-    @name = name
+  def initialize
   end
 
   def main_menu
@@ -50,7 +49,12 @@ class CRM
    print 'Enter a Note: '
    note = gets.chomp
 
-   return Contact.create(first_name, last_name, email, note)
+  contact = Contact.create(
+  first_name: first_name,
+  last_name:  last_name,
+  email:      email,
+  note:       note
+  )
 
   end
 
@@ -63,7 +67,7 @@ class CRM
   end
 
   def display_all_contacts
-    self.all
+    puts Contact.all.inspect
   end
 
   def search_by_attribute
@@ -71,6 +75,5 @@ class CRM
   end
 
 end
-# 
-# bitmaker = CRM.new("black_book")
-# bitmaker.main_menu
+#
+bitmaker = CRM.new
