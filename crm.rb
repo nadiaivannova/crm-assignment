@@ -59,11 +59,22 @@ class CRM
   end
 
   def modify_existing_contact
-    contact.update
+
+    contact = search_by_attribute
+
+    print 'What feild would you like to chage? '
+    field = gets.chomp
+
+    print 'What is the new value? '
+    value = gets.chomp
+
+    contact.update(field => value)
+
   end
 
   def delete_contact
-    self.delete
+    contact = search_by_attribute
+    contact.delete
   end
 
   def display_all_contacts
@@ -71,7 +82,16 @@ class CRM
   end
 
   def search_by_attribute
-    self.find_by
+
+    print 'Search for contac by which field?'
+    attribute = gets.chomp
+
+    print 'What is the value of the field?'
+    value = gets.chomp
+
+    contact = Contact.find_by(attribute => value)
+
+    return contact
   end
 
 end
