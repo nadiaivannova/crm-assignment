@@ -71,6 +71,6 @@ class CRM
   end
 
 end
-
-bitmaker = CRM.new("black_book")
-bitmaker.main_menu
+# 
+# bitmaker = CRM.new("black_book")
+# bitmaker.main_menu
